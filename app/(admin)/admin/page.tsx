@@ -15,12 +15,15 @@ import {
   Clock,
   AlertCircle,
   BarChart3,
-  PieChart,
   Download,
   Plus,
-  Edit,
-  Trash2,
-  Eye
+  Eye,
+  LogOut,
+  MessageSquare,
+  DollarSign,
+  Activity,
+  PieChart,
+  Sparkles
 } from "lucide-react";
 import Link from "next/link";
 
@@ -111,38 +114,38 @@ export default function AdminDashboard() {
     { 
       icon: <UserPlus className="h-6 w-6" />, 
       label: "শিক্ষার্থী যোগ",
-      href: "/admin/students/add",
+      href: "#",
       color: "bg-blue-50 text-blue-600 hover:bg-blue-100"
     },
     { 
       icon: <FileText className="h-6 w-6" />, 
       label: "পরীক্ষা তৈরি",
-      href: "/admin/exams/create",
+      href: "#",
       color: "bg-green-50 text-green-600 hover:bg-green-100"
     },
     { 
       icon: <Calendar className="h-6 w-6" />, 
       label: "ইভেন্ট যোগ",
-      href: "/admin/events/add",
+      href: "#",
       color: "bg-purple-50 text-purple-600 hover:bg-purple-100"
     },
     { 
-      icon: <Users className="h-6 w-6" />, 
-      label: "শিক্ষক নিয়োগ",
-      href: "/admin/teachers/add",
+      icon: <MessageSquare className="h-6 w-6" />, 
+      label: "নোটিশ পাঠান",
+      href: "#",
       color: "bg-yellow-50 text-yellow-600 hover:bg-yellow-100"
     },
     { 
-      icon: <BarChart3 className="h-6 w-6" />, 
-      label: "রিপোর্ট দেখুন",
-      href: "/admin/reports",
-      color: "bg-red-50 text-red-600 hover:bg-red-100"
+      icon: <DollarSign className="h-6 w-6" />, 
+      label: "ফি সংগ্রহ",
+      href: "#",
+      color: "bg-green-50 text-green-600 hover:bg-green-100"
     },
     { 
-      icon: <Settings className="h-6 w-6" />, 
-      label: "সেটিংস",
-      href: "/admin/settings",
-      color: "bg-gray-50 text-gray-600 hover:bg-gray-100"
+      icon: <BarChart3 className="h-6 w-6" />, 
+      label: "রিপোর্ট",
+      href: "#",
+      color: "bg-red-50 text-red-600 hover:bg-red-100"
     },
   ];
 
@@ -171,15 +174,18 @@ export default function AdminDashboard() {
               <Download className="h-5 w-5 text-gray-600" />
             </button>
             <Link
-              href="/admin/settings"
+              href="#"
               className="bg-white p-3 rounded-xl shadow hover:shadow-lg transition"
             >
               <Settings className="h-5 w-5 text-gray-600" />
             </Link>
-            <button className="bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition flex items-center gap-2 shadow-lg hover:shadow-xl">
-              <Plus className="h-5 w-5" />
-              নতুন যোগ করুন
-            </button>
+            <Link
+              href="/admin/login"
+              className="bg-red-500 text-white px-4 py-3 rounded-xl font-semibold hover:bg-red-600 transition flex items-center gap-2"
+            >
+              <LogOut className="h-5 w-5" />
+              লগআউট
+            </Link>
           </div>
         </motion.div>
 
@@ -220,7 +226,7 @@ export default function AdminDashboard() {
             >
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-xl font-bold text-gray-800">সাম্প্রতিক কার্যক্রম</h2>
-                <Link href="/admin/activities" className="text-blue-600 text-sm font-medium hover:underline">
+                <Link href="#" className="text-blue-600 text-sm font-medium hover:underline">
                   সব দেখুন
                 </Link>
               </div>
@@ -251,7 +257,7 @@ export default function AdminDashboard() {
             >
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-xl font-bold text-gray-800">আসন্ন ইভেন্ট</h2>
-                <Link href="/admin/events" className="text-blue-600 text-sm font-medium hover:underline">
+                <Link href="#" className="text-blue-600 text-sm font-medium hover:underline">
                   সব দেখুন
                 </Link>
               </div>
@@ -367,7 +373,7 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        {/* Bottom Section - Charts or Additional Info */}
+        {/* Bottom Section - Charts & Additional Info */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -443,6 +449,11 @@ export default function AdminDashboard() {
             </div>
           </div>
         </motion.div>
+
+        {/* Footer */}
+        <div className="mt-8 text-center text-gray-500 text-sm">
+          <p>© ২০২৬ আদর্শ বিদ্যাপীঠ অ্যাডমিন প্যানেল</p>
+        </div>
       </div>
     </div>
   );
